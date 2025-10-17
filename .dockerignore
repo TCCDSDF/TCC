@@ -1,0 +1,11 @@
+TCC_Backend/BarbersClubs/target/
+TCC_Backend/BarbersClubs/.mvn/wrapper/maven-wrapper.jar
+TCC_FRONTEND/
+TCC_FLUTTER/
+TCC_BANCO/
+.git
+.gitignore
+README.md
+.env
+.DS_Store
+*.log
