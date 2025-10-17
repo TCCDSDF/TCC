@@ -4,7 +4,7 @@ import axios from 'axios';
 const AuthContext = createContext(null);
 
 // Configuração da API
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = 'https://tcc-upeo.onrender.com/api';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

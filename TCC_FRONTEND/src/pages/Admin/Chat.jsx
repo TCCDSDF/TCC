@@ -39,7 +39,7 @@ const AdminChat = () => {
   const fetchBarbers = async () => {
     try {
       console.log('Buscando barbeiros...');
-      const response = await axios.get('http://localhost:8080/api/chat/barbers');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/chat/barbers');
       console.log('Resposta da API:', response.data);
       
       if (Array.isArray(response.data) && response.data.length > 0) {
@@ -66,7 +66,7 @@ const AdminChat = () => {
   const fetchMessages = async (barberId) => {
     try {
       console.log('Buscando mensagens para o barbeiro ID:', barberId);
-      const response = await axios.get(`http://localhost:8080/api/chat/admin-messages/${barberId}`);
+      const response = await axios.get(`https://tcc-upeo.onrender.com/api/chat/admin-messages/${barberId}`);
       console.log('Mensagens recebidas:', response.data);
       
       if (Array.isArray(response.data)) {
@@ -100,7 +100,7 @@ const AdminChat = () => {
 
     try {
       console.log('Enviando mensagem para o barbeiro:', selectedBarber.id);
-      const response = await axios.post('http://localhost:8080/api/chat/send', {
+      const response = await axios.post('https://tcc-upeo.onrender.com/api/chat/send', {
         message: messageCopy,
         receiver_id: selectedBarber.id,
         sender_id: 1 // Admin ID
@@ -119,7 +119,7 @@ const AdminChat = () => {
   const cleanEmptyChats = async () => {
     try {
       if (window.confirm('Deseja remover todas as conversas vazias?')) {
-        await axios.post('http://localhost:8080/api/chat/clean-empty-chats');
+        await axios.post('https://tcc-upeo.onrender.com/api/chat/clean-empty-chats');
         fetchBarbers();
         setError('');
       }
@@ -171,7 +171,7 @@ const AdminChat = () => {
           <button
             onClick={() => {
               if (window.confirm('Tem certeza que deseja resetar todas as conversas? Esta ação não pode ser desfeita.')) {
-                axios.post('http://localhost:8080/api/chat/reset-chats')
+                axios.post('https://tcc-upeo.onrender.com/api/chat/reset-chats')
                   .then(response => {
                     alert('Todas as conversas foram resetadas com sucesso!');
                     if (selectedBarber) {
@@ -219,7 +219,7 @@ const AdminChat = () => {
                   onClick={async () => {
                     try {
                       // Criar um barbeiro de teste
-                      const response = await axios.post('http://localhost:8080/api/usuarios/cadastro', {
+                      const response = await axios.post('https://tcc-upeo.onrender.com/api/usuarios/cadastro', {
                         nome: 'Barbeiro Teste',
                         email: 'barbeiro@teste.com',
                         senha: 'teste123',

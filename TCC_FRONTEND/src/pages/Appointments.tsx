@@ -53,7 +53,7 @@ const Appointments = () => {
 
   const fetchServices = async (barbearia) => {
     try {
-      const response = await axios.get('http://localhost:8080/api/servicos');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/servicos');
       const filteredServices = response.data.filter(service => 
         !service.barbearia_id || service.barbearia_id == barbearia?.id
       );
@@ -65,7 +65,7 @@ const Appointments = () => {
 
   const fetchBarbers = async (barbearia) => {
     try {
-      const response = await axios.get('http://localhost:8080/api/barbeiros');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/barbeiros');
       const filteredBarbers = response.data.filter(barber => 
         barber.barbearia_id == barbearia?.id
       );
@@ -77,7 +77,7 @@ const Appointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/agendamentos');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/agendamentos');
       const userAppointments = response.data.filter(appointment => 
         appointment.usuario_id === user?.id
       );
@@ -145,7 +145,7 @@ const Appointments = () => {
         dataAgendamento: localDateTime
       };
       
-      await axios.post('http://localhost:8080/api/agendamentos', appointmentData);
+      await axios.post('https://tcc-upeo.onrender.com/api/agendamentos', appointmentData);
       await fetchAppointments();
       
       setBookingSuccess(true);
@@ -208,7 +208,7 @@ const Appointments = () => {
 
   const handleCancelAppointment = async (appointmentId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/agendamentos/${appointmentId}`);
+      await axios.delete(`https://tcc-upeo.onrender.com/api/agendamentos/${appointmentId}`);
       await fetchAppointments();
     } catch (error) {
       setErrors({ cancel: 'Failed to cancel appointment' });

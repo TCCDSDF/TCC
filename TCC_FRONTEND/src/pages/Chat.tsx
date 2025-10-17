@@ -40,7 +40,7 @@ const Chat = () => {
       console.log('Buscando mensagens para o barbeiro ID:', user.id);
       
       // Buscar mensagens do barbeiro atual (usando seu ID real)
-      const response = await axios.get(`http://localhost:8080/api/chat/messages/${user.id}`);
+      const response = await axios.get(`https://tcc-upeo.onrender.com/api/chat/messages/${user.id}`);
       
       console.log('Mensagens recebidas:', response.data);
       
@@ -87,7 +87,7 @@ const Chat = () => {
       console.log('Conteúdo da mensagem:', newMessage);
       
       // Enviar para o servidor
-      const response = await axios.post('http://localhost:8080/api/chat/send', {
+      const response = await axios.post('https://tcc-upeo.onrender.com/api/chat/send', {
         message: newMessage,
         sender_id: parseInt(user.id), // Garantir que é um número
         receiver_id: 1 // Admin ID é sempre 1
@@ -141,7 +141,7 @@ const Chat = () => {
             <button
               onClick={() => {
                 if (window.confirm('Tem certeza que deseja limpar seu histórico de conversa? Esta ação não pode ser desfeita.')) {
-                  axios.post(`http://localhost:8080/api/chat/reset-user-chats/${user.id}`)
+                  axios.post(`https://tcc-upeo.onrender.com/api/chat/reset-user-chats/${user.id}`)
                     .then(response => {
                       alert('Seu histórico de conversa foi limpo com sucesso!');
                       fetchMessages();
@@ -149,7 +149,7 @@ const Chat = () => {
                     .catch(error => {
                       console.error('Erro ao limpar histórico:', error);
                       // Fallback: usar o endpoint geral de resetar chats
-                      axios.post('http://localhost:8080/api/chat/reset-chats')
+                      axios.post('https://tcc-upeo.onrender.com/api/chat/reset-chats')
                         .then(() => {
                           alert('Seu histórico de conversa foi limpo com sucesso!');
                           fetchMessages();

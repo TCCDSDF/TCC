@@ -19,7 +19,7 @@ const BarberAppointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/agendamentos/barbeiro/${user.id}`);
+      const response = await axios.get(`https://tcc-upeo.onrender.com/api/agendamentos/barbeiro/${user.id}`);
       setAppointments(response.data);
       setLoading(false);
     } catch (error) {
@@ -34,7 +34,7 @@ const BarberAppointments = () => {
       setError('');
       setSuccess('');
 
-      await axios.put(`http://localhost:8080/api/agendamentos/confirmar/${appointmentId}`);
+      await axios.put(`https://tcc-upeo.onrender.com/api/agendamentos/confirmar/${appointmentId}`);
       setSuccess('Agendamento concluído com sucesso!');
       
       fetchAppointments();
@@ -49,7 +49,7 @@ const BarberAppointments = () => {
       setError('');
       setSuccess('');
 
-      await axios.put(`http://localhost:8080/api/agendamentos/rejeitar/${appointmentId}`);
+      await axios.put(`https://tcc-upeo.onrender.com/api/agendamentos/rejeitar/${appointmentId}`);
       setSuccess('Agendamento cancelado com sucesso!');
       
       fetchAppointments();

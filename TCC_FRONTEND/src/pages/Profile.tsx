@@ -26,7 +26,7 @@ const Profile = () => {
   const fetchUserData = async () => {
     if (user?.id) {
       try {
-        const appointmentsResponse = await axios.get('http://localhost:8080/api/agendamentos');
+        const appointmentsResponse = await axios.get('https://tcc-upeo.onrender.com/api/agendamentos');
         const filteredAppointments = appointmentsResponse.data.filter(appointment => 
           appointment.usuario_id === user.id
         );

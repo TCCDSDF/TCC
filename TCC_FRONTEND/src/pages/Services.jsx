@@ -17,7 +17,7 @@ const Services = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/servicos');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/servicos');
       const servicesWithImages = response.data.map((service, index) => ({
         ...service,
         image_url: service.image_url || [

@@ -27,7 +27,7 @@ const Services = () => {
 
   const fetchBarbearias = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/barbearias');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/barbearias');
       setBarbearias(response.data);
     } catch (error) {
       console.error('Error fetching barbearias:', error);
@@ -36,7 +36,7 @@ const Services = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/servicos');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/servicos');
       setServices(response.data);
     } catch (error) {
       console.error('Error fetching services:', error);
@@ -50,7 +50,7 @@ const Services = () => {
 
     try {
       if (editingService) {
-        await axios.put(`http://localhost:8080/api/servicos/${editingService.id}`, {
+        await axios.put(`https://tcc-upeo.onrender.com/api/servicos/${editingService.id}`, {
           nome: formData.name,
           descricao: formData.description,
           duracao: parseInt(formData.duration),
@@ -71,7 +71,7 @@ const Services = () => {
           ativo: true,
           barbearia_id: formData.barbearia_id ? parseInt(formData.barbearia_id) : null
         });
-        await axios.post('http://localhost:8080/api/servicos', {
+        await axios.post('https://tcc-upeo.onrender.com/api/servicos', {
           nome: formData.name,
           descricao: formData.description,
           duracao: parseInt(formData.duration),
@@ -120,7 +120,7 @@ const Services = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this service?')) {
       try {
-        await axios.delete(`http://localhost:8080/api/servicos/${id}`);
+        await axios.delete(`https://tcc-upeo.onrender.com/api/servicos/${id}`);
         fetchServices();
       } catch (error) {
         console.error('Error deleting service:', error);

@@ -68,7 +68,7 @@ const ParceirosBarbearias = () => {
   const fetchBarbearias = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:8080/api/barbearias');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/barbearias');
       setBarbearias(response.data);
       setLoading(false);
     } catch (err) {
@@ -292,7 +292,7 @@ const ParceirosBarbearias = () => {
     try {
       if (currentBarbearia) {
         // Atualizar barbearia existente
-        await axios.put(`http://localhost:8080/api/barbearias/${currentBarbearia.id}`, formData);
+        await axios.put(`https://tcc-upeo.onrender.com/api/barbearias/${currentBarbearia.id}`, formData);
         
         // Atualizar a lista local
         setBarbearias(barbearias.map(b => 
@@ -300,7 +300,7 @@ const ParceirosBarbearias = () => {
         ));
       } else {
         // Criar nova barbearia
-        const response = await axios.post('http://localhost:8080/api/barbearias', formData);
+        const response = await axios.post('https://tcc-upeo.onrender.com/api/barbearias', formData);
         
         // Adicionar à lista local
         setBarbearias([...barbearias, response.data]);
@@ -343,7 +343,7 @@ const ParceirosBarbearias = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/barbearias/${id}`);
+      await axios.delete(`https://tcc-upeo.onrender.com/api/barbearias/${id}`);
       setBarbearias(barbearias.filter(b => b.id !== id));
       setDeleteConfirmId(null);
     } catch (err) {
@@ -359,7 +359,7 @@ const ParceirosBarbearias = () => {
   const toggleStatus = async (barbearia) => {
     try {
       const updatedBarbearia = { ...barbearia, ativo: !barbearia.ativo };
-      await axios.put(`http://localhost:8080/api/barbearias/${barbearia.id}`, updatedBarbearia);
+      await axios.put(`https://tcc-upeo.onrender.com/api/barbearias/${barbearia.id}`, updatedBarbearia);
       
       // Atualizar a lista local
       setBarbearias(barbearias.map(b => 

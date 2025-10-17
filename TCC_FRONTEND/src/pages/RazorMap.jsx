@@ -39,7 +39,7 @@ const RazorMap = () => {
   useEffect(() => {
     const fetchBarbearias = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/barbearias/parceiras');
+        const response = await axios.get('https://tcc-upeo.onrender.com/api/barbearias/parceiras');
         setBarbearias(response.data);
       } catch (err) {
         setError('Falha ao carregar barbearias parceiras.');

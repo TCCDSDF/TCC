@@ -28,7 +28,7 @@ const Barbers = () => {
 
   const fetchBarbearias = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/barbearias');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/barbearias');
       setBarbearias(response.data);
     } catch (error) {
       console.error('Error fetching barbearias:', error);
@@ -37,7 +37,7 @@ const Barbers = () => {
 
   const fetchBarbers = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/barbeiros');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/barbeiros');
       // Mapear os campos do backend para o formato esperado pelo frontend
       const mappedBarbers = response.data.map(barber => ({
         id: barber.id,
@@ -65,7 +65,7 @@ const Barbers = () => {
 
     try {
       if (editingBarber) {
-        await axios.put(`http://localhost:8080/api/barbeiros/${editingBarber.id}`, {
+        await axios.put(`https://tcc-upeo.onrender.com/api/barbeiros/${editingBarber.id}`, {
           biografia: formData.bio,
           especialidades: formData.specialties,
           tempoExperiencia: parseInt(formData.years_experience) || 0,
@@ -75,7 +75,7 @@ const Barbers = () => {
           barbearia_id: formData.barbearia_id ? parseInt(formData.barbearia_id) : null
         });
       } else {
-        await axios.post('http://localhost:8080/api/barbeiros', {
+        await axios.post('https://tcc-upeo.onrender.com/api/barbeiros', {
           nome: formData.name,
           email: formData.email,
           senha: formData.password,
@@ -127,7 +127,7 @@ const Barbers = () => {
     if (window.confirm('Are you sure you want to delete this barber?')) {
       try {
         console.log(`Attempting to delete barber with ID: ${id}`);
-        const response = await axios.delete(`http://localhost:8080/api/barbeiros/${id}`);
+        const response = await axios.delete(`https://tcc-upeo.onrender.com/api/barbeiros/${id}`);
         console.log('Delete response:', response.data);
         fetchBarbers();
       } catch (error) {

@@ -9,7 +9,7 @@ class ApiService {
   // Use localhost para testes no Chrome ou emulador web
   // Use 10.0.2.2 para emulador Android
   static String get baseUrl {
-    return 'http://localhost:8080/api';
+    return 'https://tcc-upeo.onrender.com/api';
   }
 
   // Headers padrão para requisições

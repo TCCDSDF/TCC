@@ -1,6 +1,6 @@
 class AppConstants {
   // API URLs
-  static const String baseUrl = 'https://api.example.com';
+  static const String baseUrl = 'https://tcc-upeo.onrender.com/api';
   
   // Asset paths
   static const String assetsPath = 'assets/';
