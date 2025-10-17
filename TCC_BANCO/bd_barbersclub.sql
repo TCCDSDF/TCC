@@ -244,3 +244,9 @@ SET usuario_id = cliente_id
 WHERE usuario_id IS NULL;
 
 GO
+
+ALTER TABLE Agendamento ADD usuario_id INT;
+UPDATE Agendamento SET usuario_id = cliente_id;
+ALTER TABLE Agendamento
+ADD CONSTRAINT FK_Agendamento_Usuario
+FOREIGN KEY (usuario_id) REFERENCES Cliente(id);

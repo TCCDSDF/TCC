@@ -15,11 +15,17 @@ const LoyaltySettings = () => {
   const fetchLevels = async () => {
     try {
       const response = await axios.get('https://tcc-upeo.onrender.com/api/loyalty/points');
-      setLevels(response.data.levels);
+      setLevels(response.data?.levels || []);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching loyalty levels:', error);
       setError('Failed to load loyalty levels');
+      // Set default levels if API fails
+      setLevels([
+        { level: 'bronze', points_required: 0, description: 'Nível inicial' },
+        { level: 'silver', points_required: 500, description: 'Nível intermediário' },
+        { level: 'gold', points_required: 1000, description: 'Nível premium' }
+      ]);
       setLoading(false);
     }
   };
@@ -82,7 +88,7 @@ const LoyaltySettings = () => {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        {levels.map((level, index) => (
+        {levels && levels.length > 0 ? levels.map((level, index) => (
           <div key={level.level} className="card-luxury">
             <div className="flex items-center space-x-4 mb-6">
               <div className="p-3 bg-[#c4a47c] rounded-lg">
@@ -115,7 +121,11 @@ const LoyaltySettings = () => {
               </div>
             </div>
           </div>
-        ))}
+        )) : (
+          <div className="col-span-3 text-center py-8">
+            <p className="text-gray-400">Nenhum nível de fidelidade encontrado</p>
+          </div>
+        )}
       </div>
 
       <button

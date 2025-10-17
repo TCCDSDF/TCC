@@ -35,12 +35,12 @@ const Reports = () => {
         newClients: totalAgendamentos,
         avgServiceTime: 45,
         bookingRate: totalAgendamentos > 0 ? Math.round((agendamentosCompletos / totalAgendamentos) * 100) : 0,
-        revenueBreakdown: servicos.data.map(s => ({
+        revenueBreakdown: (servicos.data || []).map(s => ({
           service: s.nome,
           amount: s.preco * 10, // Simulando vendas
           percentage: Math.round((s.preco / 200) * 100)
         })),
-        staffPerformance: barbeiros.data.map(b => ({
+        staffPerformance: (barbeiros.data || []).map(b => ({
           name: b.nome,
           clientsServed: Math.floor(Math.random() * 50) + 20,
           revenue: Math.floor(Math.random() * 3000) + 2000,
@@ -140,7 +140,7 @@ const Reports = () => {
         <div className="card-luxury">
           <h2 className="text-2xl font-bold mb-6">Revenue Breakdown</h2>
           <div className="space-y-4">
-            {reportData.revenueBreakdown.map((item) => (
+            {(reportData.revenueBreakdown || []).map((item) => (
               <div key={item.service} className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <div className="w-2 h-2 rounded-full bg-[#c4a47c]"></div>
@@ -192,7 +192,7 @@ const Reports = () => {
                 </tr>
               </thead>
               <tbody>
-                {reportData.staffPerformance.map((staff) => (
+                {(reportData.staffPerformance || []).map((staff) => (
                   <tr key={staff.name} className="border-b border-[#3c3c3c]">
                     <td className="py-4">{staff.name}</td>
                     <td className="py-4">{staff.clientsServed}</td>

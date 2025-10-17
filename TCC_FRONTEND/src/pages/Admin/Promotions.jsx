@@ -23,9 +23,10 @@ const Promotions = () => {
   const fetchPromotions = async () => {
     try {
       const response = await axios.get('https://tcc-upeo.onrender.com/api/promocoes');
-      setPromotions(response.data);
+      setPromotions(response.data || []);
     } catch (error) {
       console.error('Error fetching promotions:', error);
+      setPromotions([]);
     }
   };
 
@@ -107,7 +108,7 @@ const Promotions = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {promotions.map((promotion) => (
+        {promotions && promotions.length > 0 ? promotions.map((promotion) => (
           <div key={promotion.id} className="card-luxury">
             <div className="flex items-center space-x-4 mb-6">
               <div className="p-3 bg-[#c4a47c] rounded-lg">
@@ -155,7 +156,11 @@ const Promotions = () => {
               </button>
             </div>
           </div>
-        ))}
+        )) : (
+          <div className="col-span-3 text-center py-8">
+            <p className="text-gray-400">Nenhuma promoção encontrada</p>
+          </div>
+        )}
       </div>
 
       {showAddModal && (
