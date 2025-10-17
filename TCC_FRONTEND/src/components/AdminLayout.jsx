@@ -36,9 +36,9 @@ const AdminLayout = ({ children }) => {
     { path: '/admin/parceiros', icon: MapPin, label: 'RazorMap' },
     { path: '/admin/chat', icon: MessageSquare, label: 'Chat' },
     { path: '/admin/promotions', icon: Gift, label: 'Promoções' },
-    { path: '/admin/loyalty', icon: Star, label: 'Fidelidade' },
+
     { path: '/admin/reports', icon: BarChart, label: 'Relatórios' },
-    { path: '/admin/settings', icon: Settings, label: 'Configurações' }
+
   ];
 
   return (
