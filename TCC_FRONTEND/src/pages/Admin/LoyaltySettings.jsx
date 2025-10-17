@@ -14,7 +14,7 @@ const LoyaltySettings = () => {
 
   const fetchLevels = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/loyalty/points');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/loyalty/points');
       setLevels(response.data.levels);
       setLoading(false);
     } catch (error) {
@@ -37,7 +37,7 @@ const LoyaltySettings = () => {
         }
       }
 
-      await axios.put('http://localhost:8080/api/loyalty/levels', { levels });
+      await axios.put('https://tcc-upeo.onrender.com/api/loyalty/levels', { levels });
       setSuccess('Loyalty levels updated successfully');
     } catch (error) {
       console.error('Error updating loyalty levels:', error);

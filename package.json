@@ -1,0 +1,8 @@
+{
+  "name": "tcc-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "cd TCC_FRONTEND && npm install && npm run build",
+    "install": "cd TCC_FRONTEND && npm install"
+  }
+}

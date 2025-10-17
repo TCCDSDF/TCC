@@ -21,9 +21,9 @@ const Reports = () => {
   const fetchReportData = async () => {
     try {
       const [agendamentos, servicos, barbeiros] = await Promise.all([
-        axios.get('http://localhost:8080/api/agendamentos'),
-        axios.get('http://localhost:8080/api/servicos'),
-        axios.get('http://localhost:8080/api/barbeiros')
+        axios.get('https://tcc-upeo.onrender.com/api/agendamentos'),
+        axios.get('https://tcc-upeo.onrender.com/api/servicos'),
+        axios.get('https://tcc-upeo.onrender.com/api/barbeiros')
       ]);
 
       // Calcular métricas baseadas nos dados reais

@@ -22,7 +22,7 @@ const Promotions = () => {
 
   const fetchPromotions = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/promocoes');
+      const response = await axios.get('https://tcc-upeo.onrender.com/api/promocoes');
       setPromotions(response.data);
     } catch (error) {
       console.error('Error fetching promotions:', error);
@@ -33,9 +33,9 @@ const Promotions = () => {
     e.preventDefault();
     try {
       if (editingPromotion) {
-        await axios.put(`http://localhost:8080/api/promocoes/${editingPromotion.id}`, formData);
+        await axios.put(`https://tcc-upeo.onrender.com/api/promocoes/${editingPromotion.id}`, formData);
       } else {
-        await axios.post('http://localhost:8080/api/promocoes', formData);
+        await axios.post('https://tcc-upeo.onrender.com/api/promocoes', formData);
       }
       setShowAddModal(false);
       setEditingPromotion(null);
@@ -71,7 +71,7 @@ const Promotions = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this promotion?')) {
       try {
-        await axios.delete(`http://localhost:8080/api/promocoes/${id}`);
+        await axios.delete(`https://tcc-upeo.onrender.com/api/promocoes/${id}`);
         fetchPromotions();
       } catch (error) {
         console.error('Error deleting promotion:', error);
