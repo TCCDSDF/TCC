@@ -1,0 +1,46 @@
+name: barber_shop_app
+description: A beautiful barber shop booking application.
+
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cached_network_image: ^3.4.1
+  flutter_svg: ^2.0.5
+  carousel_slider: ^5.0.0
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.2.1
+  flutter_rating_bar: ^4.0.1
+  smooth_page_indicator: ^1.1.0
+  shared_preferences: ^2.1.1
+  provider: ^6.0.5
+  intl: ^0.20.2
+  table_calendar: ^3.2.0
+  http: ^1.1.0
+  dio: ^5.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/images_services/
+    - assets/images/images_category/
+    - assets/images/images_barbershops/
+    - assets/images/images_promotions/
+    - assets/images/images_recently/
+    - assets/images/images_suggestions/
+    - assets/images/images_profile_photo/
+    - assets/images/images_for_background/
+    - assets/icons/
+    - assets/appl.png
+    - assets/barbearia.png
+    - assets/google.png

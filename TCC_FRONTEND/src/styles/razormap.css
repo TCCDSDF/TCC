@@ -1,0 +1,24 @@
+/* RazorMap Styles */
+.user-marker,
+.barber-marker {
+  border: none;
+  background: transparent;
+}
+
+.leaflet-popup-content-wrapper {
+  background: black;
+  border: 1px solid #27272a;
+  border-radius: 0;
+}
+
+.leaflet-popup-content {
+  color: white;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  margin: 8px;
+}
+
+.leaflet-popup-tip {
+  background: black;
+  border: 1px solid #27272a;
+}
